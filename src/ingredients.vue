@@ -1,10 +1,7 @@
 
 <template>
     <div>
-      <h4>{{ title }}</h4>
-      <!-- <input v-model="newIngredients">
-      <b-button variant="outline-primary" v-on:click="addTopping()">Add Ingredient</b-button>
-      -->
+      <h4>{{ title }}</h4>     
       <b-input-group >
           <b-form-input v-model="newIngredients"></b-form-input>
           <b-input-group-append>
@@ -48,11 +45,6 @@
          newIngredients: null
       }
     },
-
-    prop:{
-        data:Array,
-        columns:Array
-    },
     mounted: function(){
       if(localStorage.getItem('ingredients')){
         try{
@@ -63,9 +55,6 @@
       }
     },
     methods:{
-        getToppings: function(){
-
-        },
         addTopping: function(){
             if(!this.newIngredients){
                return;
@@ -95,8 +84,7 @@
           }
           if(find){
             alert('This ingredient should not be deleted because is used in the pizza ');
-          }else{
-            //this.ingredients.splice(id,1);
+          }else{            
             for( var i = 0; i <  this.ingredients.length; i++){
               if ( this.ingredients[i].id == id) {
                 this.ingredients.splice(i, 1);

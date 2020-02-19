@@ -65,11 +65,12 @@
       this.loadPizzaIngredients();
     },
     props:{
-        ingredients : [],
+        ingredients : Array,
     },
     methods:{
         addPizza: function(){
-            if(!this.newPizza){
+            if(!this.newPizza || this.selected.length == 0){
+               alert(' Please select a name of pizza and at least one ingredient');
                return;
             }
             var idPizza= Math.random();
